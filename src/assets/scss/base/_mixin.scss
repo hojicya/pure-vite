@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+@function get_vw($size, $viewport: 1200) {
+  $rate: 100;
+  @return $rate * $size * 1vw;
+}
+
+@mixin fz_vw($font_size: 10, $viewport: 1200) {
+  font-size: $font_size * 1px;
+  font-size: get_vw($font_size, $viewport);
+}
+
+@function pixel_to_percent($targetW, $parentW) {
+  @return 100% * calc($targetW / $parentW);
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+$breakpoints: (
+  "xs": "screen and (max-width: 320px)",
+  "sm": "screen and (max-width: 449px)",
+  "md": "screen and (max-width: 768px)",
+  "lg": "screen and (max-width: 950px)",
+  "xl": "screen and (max-width: 1366px)",
+) !default;
+$breakpoints2: (
+  "xs": "screen and (min-width: 320px)",
+  "sm": "screen and (min-width: 449px)",
+  "md": "screen and (min-width: 768px)",
+  "lg": "screen and (min-width: 950px)",
+  "xl": "screen and (min-width: 1366px)",
+) !default;
+
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mqr($breakpoint: md) {
+  @media #{map-get($breakpoints2, $breakpoint)} {
+    @content;
+  }
+}
