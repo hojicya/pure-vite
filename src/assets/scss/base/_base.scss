@@ -1,5 +1,42 @@
 body {
+  @include font;
+  color: $colorBlack;
+  font-size: 15px;
+  word-break: break-all;
+  overflow-x: hidden;
 }
 
 main {
+}
+
+.wrapper {
+  // max-width: 1200px;
+  // margin: 0 auto;
+}
+
+.inner {
+  // max-width: 860px;
+  // margin: 0 auto;
+}
+
+a,
+button {
+  transition: all 0.3s;
+  @include hover {
+    opacity: 0.7;
+  }
+}
+
+.display-pc {
+  display: block;
+  @include mq() {
+    display: none;
+  }
+}
+
+.display-sp {
+  display: none;
+  @include mq() {
+    display: block;
+  }
 }

@@ -7,30 +7,37 @@
     <meta name="description" content="{{data.description}}" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
-    <link rel="canonical" href="" />
-    <link rel="apple-touch-icon" href="" />
-    <link rel="icon" href="" />
+    <link rel="canonical" href="{{data.url}}" />
 
     <!-- OGP -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{data.title}}" />
     <meta property="og:description" content="{{data.description}}" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:site_name" content="" />
+    <meta property="og:url" content="{{data.url}}" />
+    <meta property="og:image" content="{{data.url}}/assets/images/ogp.png" />
+    <meta property="og:site_name" content="{{data.title}}" />
 
     <meta name="twitter:title" content="{{data.title}}" />
     <meta name="twitter:description" content="{{data.description}}" />
-    <meta name="twitter:url" content="" />
+    <meta name="twitter:url" content="{{data.url}}" />
     <meta name="twitter:card" content="summary" />
-    <!-- OGP end -->
 
+    <!-- favicon -->
+    <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+
+    <!-- CDN -->
+
+    <!-- StyleSheet -->
     <link rel="stylesheet" href="/assets/scss/style.scss" />
   </head>
   <body>
     {{> Header}}
 
-    <main>sample</main>
+    <main>
+      <p>リンク</p>
+      <a href="#">link</a>
+    </main>
 
     {{> Footer}}
 
