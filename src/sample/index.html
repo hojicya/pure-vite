@@ -27,20 +27,45 @@
     <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
 
     <!-- CDN -->
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.6.1/css/iziModal.min.css"
+      integrity="sha512-3c5WiuZUnVWCQGwVBf8XFg/4BKx48Xthd9nXi62YK0xnf39Oc2FV43lIEIdK50W+tfnw2lcVThJKmEAOoQG84Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- StyleSheet -->
     <link rel="stylesheet" href="/assets/scss/style.scss" />
   </head>
-  <body>
+  <body id="start">
     {{> Header}}
 
     <main>
-      <p>リンク</p>
-      <a href="#">link</a>
+      <div>
+        <strong>モーダル</strong>
+        <button data-iziModal-open=".movie-open--1">movie modal</button>
+        <div
+          class="movie-open movie-open--1"
+          data-izimodal-iframeurl="https://www.youtube.com/embed/xxxx"
+        >
+          <button class="close-button" data-izimodal-close=""></button>
+        </div>
+      </div>
     </main>
 
     {{> Footer}}
 
-    <script src="../assets/js/app.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.6.1/js/iziModal.min.js"
+      integrity="sha512-lR/2z/m/AunQdfBTSR8gp9bwkrjwMq1cP0BYRIZu8zd4ycLcpRYJopB+WsBGPDjlkJUwC6VHCmuAXwwPHlacww=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="../assets/js/app.js"></script>
   </body>
 </html>

@@ -1,0 +1,21 @@
+.iziModal {
+  width: 80%;
+  max-width: 850px !important;
+  border-radius: 0 !important;
+  iframe {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: -6%;
+    width: 4%;
+    height: auto;
+    aspect-ratio: 1/1;
+    background-image: url("../../../assets/images/icon_close.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}

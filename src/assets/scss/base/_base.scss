@@ -5,6 +5,9 @@ body {
   word-break: break-all;
   overflow-x: hidden;
 }
+#start {
+  opacity: 0;
+}
 
 main {
 }
@@ -39,4 +42,22 @@ button {
   @include mq() {
     display: block;
   }
+}
+
+/*__ lenis setting _______________________*/
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
