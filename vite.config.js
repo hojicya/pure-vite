@@ -36,7 +36,19 @@ const htmlFiles = Object.fromEntries(
   ])
 );
 
-const inputObject = { ...jsFiles, ...htmlFiles };
+const imageFiles = Object.fromEntries(
+  globSync("src/assets/images/*.{png,jpeg,jpg,svg,gif}", {
+    ignore: ["node_modules/**", "**/dist/**", "src/assets/components/**"],
+  }).map((file) => [
+    path.relative(
+      "src",
+      file.slice(0, file.length - path.extname(file).length)
+    ),
+    fileURLToPath(new URL(file, import.meta.url)),
+  ])
+);
+
+const inputObject = { ...jsFiles, ...htmlFiles, ...imageFiles };
 
 export default defineConfig({
   root: src,
@@ -59,6 +71,17 @@ export default defineConfig({
       // },
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use "${src}/assets/scss/base/_variables.scss" as *;
+          @use "${src}/assets/scss/base/_mixin.scss" as *;
+          @use "${src}/assets/scss/base/_font.scss" as *;
+          `,
+      },
+    },
+  },
   build: {
     // minify: false,
     outDir: dist,
@@ -69,7 +92,7 @@ export default defineConfig({
         chunkFileNames: `[name].js`,
         assetFileNames: ({ name }) => {
           if (/\.(gif|jpe?g|png|svg)$/.test(name ?? "")) {
-            return "assets/images/[name]_[hash].[ext]";
+            return "assets/images/[name].[ext]";
           }
           if (/\.css$/.test(name ?? "")) {
             return "assets/css/[name]_[hash].[ext]";
