@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "glob": "^10.4.2",
+    "jquery": "^3.7.1",
     "sass": "^1.77.6",
     "vite-plugin-handlebars": "^2.0.0",
     "vite-plugin-sass-glob-import": "^3.0.2"
